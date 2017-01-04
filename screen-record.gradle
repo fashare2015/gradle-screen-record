@@ -1,0 +1,5 @@
+task hello(type: Exec){
+//    println "hello"
+    executable "sh"
+    args "screen-record.sh"
+}
