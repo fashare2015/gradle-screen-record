@@ -1,3 +1,27 @@
+ext.remoteDir='https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/'
+
+ext.dir=ext.remoteDir
+
+//apply from: "${dir}screen-record.gradle"
+
+task download() {
+    ext.filename = "screen-record.sh"
+    ext.url = dir + filename
+
+    new File(ext.filename).withOutputStream {
+        it << new URL(ext.url).openStream()
+    }
+}
+
+task download2() {
+    ext.filename = "mkdir-if-absent.sh"
+    ext.url = dir + filename
+
+    new File(ext.filename).withOutputStream {
+        it << new URL(ext.url).openStream()
+    }
+}
+
 task hello(type: Exec){
 //    println "hello"
     executable "sh"
