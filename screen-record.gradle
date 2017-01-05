@@ -1,4 +1,5 @@
-//apply from: "${dir}screen-record.gradle"
+// Usage: add to your rootProject/build.gradle
+// apply from: "https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/screen-record.gradle"
 
 def CMD_DIR_REMOTE = "https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/"
 def CMD_DIR_LOCAL = "./"    //TODO: download into a local cmd dir
@@ -21,12 +22,25 @@ task downloadCmds() {
     }
 }
 
-task screenRecord(type: Exec) {
-//    def fileName=project['fileName']
-//    def size=project['size']
-//    def time=project['time']
+task chmod(type: Exec) {
+    executable "sh"
+    args "-c", "chmod 7777 " + CMD_DIR_LOCAL + "screen-record.sh"
+}
+
+task screenRecord(type: Exec, dependsOn: chmod) {
+    def fileName = getString(project, 'fileName', "screenRecord")
+    def size = getString(project, 'size', "240x400")
+    def time = getString(project, 'time', "8")
+    def ffmpegPath = getFfmpegPath()
 
     executable "sh"
-//    args CMD_DIR_LOCAL + "screen-record.sh ${fileName} ${size} ${time}"
-    args "./screen-record.sh taobao 100x400 20"
+    args "-c", CMD_DIR_LOCAL + "screen-record.sh $fileName $size $time $ffmpegPath"
+}
+
+def getString(Project project, String propertyName, String defaultValue) {
+    project.hasProperty(propertyName) ? project.getProperty(propertyName) : defaultValue
+}
+
+def getFfmpegPath() {
+    return hasProperty('FFMPEG_PATH') ? FFMPEG_PATH : "ffmpeg"
 }

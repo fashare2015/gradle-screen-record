@@ -4,9 +4,6 @@ targetDir=$1
 
 echo -e "$TAG mkdir $targetDir\n"
 
-if [ -d "$targetDir" ]; then
-    rmdir "$targetDir"
-    mkdir "$targetDir"
-else
+if [ ! -d "$targetDir" ]; then
     mkdir "$targetDir"
 fi
