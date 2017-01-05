@@ -1,29 +1,32 @@
-ext.remoteDir='https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/'
-
-ext.dir=ext.remoteDir
-
 //apply from: "${dir}screen-record.gradle"
 
-task download() {
-    ext.filename = "screen-record.sh"
-    ext.url = dir + filename
+def CMD_DIR_REMOTE = "https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/"
+def CMD_DIR_LOCAL = "./"    //TODO: download into a local cmd dir
+def CMD_FILE_LIST = ["screen-record.sh", "mkdir-if-absent.sh"]
 
-    new File(ext.filename).withOutputStream {
-        it << new URL(ext.url).openStream()
+task downloadCmds() {
+    CMD_FILE_LIST.forEach {
+        def fileName = it
+        def url = CMD_DIR_REMOTE + fileName
+
+        File cmdDir = new File(CMD_DIR_LOCAL)
+        if(!cmdDir.exists())
+            cmdDir.mkdir();
+
+        File cmdFile = new File(CMD_DIR_LOCAL + fileName)
+        if(!cmdFile.exists())
+            cmdFile.withOutputStream {
+                it << new URL(url).openStream()
+            }
     }
 }
 
-task download2() {
-    ext.filename = "mkdir-if-absent.sh"
-    ext.url = dir + filename
+task screenRecord(type: Exec) {
+//    def fileName=project['fileName']
+//    def size=project['size']
+//    def time=project['time']
 
-    new File(ext.filename).withOutputStream {
-        it << new URL(ext.url).openStream()
-    }
-}
-
-task hello(type: Exec){
-//    println "hello"
     executable "sh"
-    args "screen-record.sh"
+//    args CMD_DIR_LOCAL + "screen-record.sh ${fileName} ${size} ${time}"
+    args "./screen-record.sh taobao 100x400 20"
 }
