@@ -1,11 +1,11 @@
 # Supported OS
 - Mac osx
 
-<br/>
 
 # Usage
 ##0. Working with gradle environment
 Gradle is required.
+
 <br/>
 
 ##1. Prepare tools (Skip this part if installed)
@@ -15,6 +15,7 @@ Make sure these tools installed，or else install them first:
  - **ffmpeg**:   We use it to convert the format of these files, from `.mp4` to `.gif`.
 
 More infomation about [Prepare tools](./prepare-tools.MD)
+
 <br/>
 
 ##2. Apply `gradle-screen-record` (Just one line)
@@ -41,6 +42,7 @@ Or:
 ### operate your modile phone
 When you see **"> Building 50% > :screenRecord"** in the terminal, the screen recording is begining.
 Just **operate your modile phone** as you want, and it will stop after **"-Ptime"** second.
+
 <br/>
 
 ##4. Complete !!!
@@ -55,12 +57,14 @@ By the way, add it to git~
 support for windows.
 
 Make issues or pull request, if you have good ideas ~
+
 <br/>
 
 #Thanks
 [Helper to upload Gradle Android Artifacts to Maven repositories](https://github.com/chrisbanes/gradle-mvn-push)
 
 [深入理解Android之Gradle](http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0911/3443.html)
+
 
 
 
