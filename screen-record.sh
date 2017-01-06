@@ -56,8 +56,12 @@ then
     fi
 
     # Convert the video (XXX.mp4) to a gif (XXX.gif).
-    if [ -f $ffmpegPath ]; then
-        $ffmpegPath -r 20 -i "$pcPath$MP4_POSTFIX" -s $size "$pcPath$GIF_POSTFIX"
+    $ffmpegPath -r 20 -i "$pcPath$MP4_POSTFIX" -s $size -b:v 1500k "$pcPath$GIF_POSTFIX"
+
+    if [ $? -eq 0 ]; then
+        # Delete the redundant file (XXX.mp4).
+        rm "$pcPath$MP4_POSTFIX"
+
     else
         echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
         echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -66,7 +70,7 @@ then
 
         echo -e "$TAG ffmpegPath not found!!!\n"
         echo -e "Make sure you have installed ffmpeg!\n"
-        echo -e "Please specify the ffmpegPath by \"export FFMPEG_PATH=XXX\"\n"
+        echo -e "Please specify the ffmpegPath by \"FFMPEG_PATH=XXX\" in gradle.properties.\n"
 
         echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
         echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -75,9 +79,6 @@ then
 
         exit 1
     fi
-
-    # Delete the redundant file (XXX.mp4).
-    rm "$pcPath$MP4_POSTFIX"
 
 else
     echo -e "$TAG PARAM ERROR! Please specify a fileName (without postfix)!\n"
