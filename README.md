@@ -1,3 +1,8 @@
+# CSDN
+More information of `gradle-screen-record` with rich pictures, please see this blog:  
+http://blog.csdn.net/a153614131/article/details/54137734
+<br/>
+
 # Supported OS
 - Mac osx
 
@@ -19,7 +24,8 @@ More infomation about [Prepare tools](./prepare-tools.MD)
 <br/>
 
 ##2. Apply `gradle-screen-record` (Just one line)
-Apply `gradle-screen-record` in **rootProject/build.gradle**:
+Apply `gradle-screen-record` in **rootProject/build.gradle**,
+**don't forget to Sync Gradle !!!**:
 ```groovy
 apply from: "https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/screen-record.gradle"
 ```
