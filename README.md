@@ -1,3 +1,8 @@
+# Supported OS
+- Mac osx
+
+<br/>
+
 # Usage
 ##0. Working with gradle environment
 Gradle is required.
@@ -9,32 +14,7 @@ Make sure these tools installed，or else install them first:
  - **adb**:   We use it to get screen-record files with `.mp4` format.
  - **ffmpeg**:   We use it to convert the format of these files, from `.mp4` to `.gif`.
 
-###install ffmpeg
-####mac
-Type these cmd in your terminal.
-
-1.install homebrew
-```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-2.install ffmpeg
-```shell
-brew install ffmpeg
-```
-
-####windows
-TODO: windows is not supported for `gradle-screen-record` now.
-<br/>
-
-### Set ffmpeg path
-If you just download the ffmpeg from https://ffmpeg.org/ instead of installing it, you must set the path of it.
-Add the path of ffmpeg this way:
-
-Config in **rootProject/gradle.properties**:
->FFMPEG_PATH=XXX
-
-**For example:** 
-FFMPEG_PATH="./ffmpeg"
+More infomation about [Prepare tools](./prepare-tools.MD)
 <br/>
 
 ##2. Apply `gradle-screen-record` (Just one line)
@@ -69,6 +49,12 @@ You will find the generated gif file in **rootProject/screen-record/test.gif** !
 By the way, add it to git~
 >git add screen-record/.
 
+<br/>
+
+#TODO
+support for windows.
+
+Make issues or pull request, if you have good ideas ~
 <br/>
 
 #Thanks
