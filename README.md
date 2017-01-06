@@ -26,7 +26,7 @@ brew install ffmpeg
 TODO: windows is not supported for `gradle-screen-record` now.
 <br/>
 
-##2. Set ffmpeg path
+### Set ffmpeg path
 If you just download the ffmpeg from https://ffmpeg.org/ instead of installing it, you must set the path of it.
 Add the path of ffmpeg this way:
 
@@ -37,14 +37,14 @@ Config in **rootProject/gradle.properties**:
 FFMPEG_PATH="./ffmpeg"
 <br/>
 
-##3. Apply `gradle-screen-record` (Just one line)
+##2. Apply `gradle-screen-record` (Just one line)
 Apply `gradle-screen-record` in **rootProject/build.gradle**:
 ```groovy
 apply from: "https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/screen-record.gradle"
 ```
 <br/>
 
-##4. Record Screen
+##3. Record Screen
 ### excute gradle cmd
 excute gradle cmd with three params:
 
@@ -63,7 +63,7 @@ When you see **"> Building 50% > :screenRecord"** in the terminal, the screen re
 Just **operate your modile phone** as you want, and it will stop after **"-Ptime"** second.
 <br/>
 
-##5. Complete !!!
+##4. Complete !!!
 You will find the generated gif file in **rootProject/screen-record/test.gif** !!!
 
 By the way, add it to git~
