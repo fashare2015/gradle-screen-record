@@ -1,24 +1,24 @@
-#prepare ffmpeg
+# prepare ffmpeg
 You can use ffmpeg either by **installing** or just by **downloading**. 
 
-##install ffmpeg
-###mac
+## install ffmpeg
+### mac
 Type these cmd in your terminal.
 
-1.install homebrew
+1. install homebrew
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-2.install ffmpeg
+2. install ffmpeg
 ```shell
 brew install ffmpeg
 ```
 
-###windows
+### windows
 TODO: windows is not supported for `gradle-screen-record` now.
 <br/>
 
-##download ffmpeg
+## download ffmpeg
 https://ffmpeg.org/
 Or:
 https://raw.githubusercontent.com/fashare2015/gradle-screen-record/master/ffmpeg
